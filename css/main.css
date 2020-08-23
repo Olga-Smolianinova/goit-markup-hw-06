@@ -160,18 +160,18 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
 }
-.contacts-link:hover,
-.contacts-link:focus {
+.contacts-nav .contacts-link:hover,
+.contacts-link .contacts-link:focus {
   transform: scale(1.1);
   transition: transform 250ms var(--timing-function);
 
   color: var(--accent-color);
-  fill: var(--accent-color);
   text-decoration: underline;
+
 }
 .contacts-icons {
   margin-right: 10px;
-  fill: var(--primary-text-color);
+  fill: currentColor;
   vertical-align: middle;
 }
 /* .contacts-icons:hover {
@@ -305,8 +305,15 @@ img {
   background-position: center;
   outline: 2px solid green;
 } */
-.this-hidden {
-  display: none;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 .features-title,
 .team-title {
@@ -405,7 +412,8 @@ img {
 
   /* outline: 2px solid fuchsia; */
 }
-.team-ref:hover {
+.team-ref:hover,
+.team-ref:focus {
   transform: rotate(360deg);
   transition: transform 250ms var(--timing-function);
 
@@ -535,7 +543,8 @@ img {
 
   background-color: rgba(255, 255, 255, 0.1);
 }
-.footer-ref:hover {
+.footer-ref:hover,
+.footer-ref:focus {
   transform: rotate(360deg);
   transition: transform 250ms var(--timing-function);
 
@@ -550,11 +559,28 @@ img {
 
 /* Blok 3 Subscription */
 .subscription {
-  width: 570px;
+  min-width: 570px;
   /* outline: 2px solid palevioletred; */
+}
+.subscription-input {
+  margin-right: 12px;
+  padding: 15px;
+  width: 339px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+
+  font-size: 16px;
+  line-height: 1.25;
+
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.6);
+}
+.subscription-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 .sub-icon {
   margin-left: 10px;
+  vertical-align: middle;
   /* outline: 2px solid black; */
 }
 
@@ -606,6 +632,10 @@ img {
   border-radius: 50%;
   background-color: var(--white-color);
 }
+.modal-btn:hover {
+  fill: var(--accent-color);
+}
+
 .form-title {
   margin-top: 0;
   margin-bottom: 12px;
@@ -617,13 +647,16 @@ img {
 
   color: var(--title-text-color);
 }
+
 .form-field {
+  position: relative;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
 
   /* outline: 1px solid teal; */
 }
+
 .form-label {
   margin-bottom: 4px;
 
@@ -634,12 +667,31 @@ img {
 
   color: var(--primary-text-color);
 }
+
 .form-input {
   resize: none;
+  padding: 11px 12px 11px 42px;
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
 }
+
+.form-icon {
+  position: absolute;
+  top: 18px;
+  left: 15px;
+  top: 50%;
+}
+
+.form-field:focus-within > .form-input {
+  outline-color: var(--accent-color);
+  border: none;
+  border-radius: 4px;
+}
+.form-field:focus-within > .form-icon {
+  fill: var(--accent-color);
+}
+
 .comment {
   padding: 12px 16px;
   font-weight: 400;
@@ -649,6 +701,48 @@ img {
 }
 .form-input::placeholder {
   color: rgba(117, 117, 117, 0.5);
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  padding-left: 13px;
+  margin-bottom: 30px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+
+  color: var(--primary-text-color);
+}
+.checkbox-icon {
+  display: inline-block;
+  margin-right: 8px;
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--title-text-color);
+  border-radius: 2px;
+}
+.checkbox-input:checked + .checkbox-icon {
+  background-image: url(../images/SVG-icons/checkbox.svg);
+  background-size: contain;
+  background-origin: border-box;
+
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.checkbox-link {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.form-btn {
+  position: absolute;
+  left: 164px;
+  bottom: 40px;
+  
+}
+
 }
 
 /* ПОРТФОЛИО */
